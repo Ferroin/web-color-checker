@@ -1,0 +1,207 @@
+{
+    "name": "web-theme-creator",
+    "version": "0.0.1",
+    "description": "A web app for designing themes for websites.",
+    "homepage": "https://github.com/Ferroin/web-theme-creator",
+    "bugs": {
+        "url": "https://github.com/Ferroin/web-theme-creator/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ferroin/web-theme-creator"
+    },
+    "author": "ahferroin7@gmail.com",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "del": "^5.0.0",
+        "fork-awesome": "^1.1.7",
+        "gulp": "^4.0.2",
+        "gulp-better-rollup": "^4.0.1",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-connect": "^5.7.0",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-terser": "^1.2.0",
+        "jquery": "^3.4.1",
+        "lodash": "^4.17.15",
+        "lodash-es": "^4.17.15",
+        "rollup": "^1.19.4"
+    },
+    "devDependencies": {
+        "ansi-colors": "^4.1.1",
+        "eslint-config-standard": "^13.0.1",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-lodash": "^6.0.0",
+        "eslint-plugin-node": "^9.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.0",
+        "eslint-plugin-unicorn": "^10.0.0",
+        "fancylog": "^4.0.3",
+        "gulp-eslint": "^6.0.0",
+        "gulp-htmllint": "0.0.16",
+        "gulp-stylelint": "^9.0.0",
+        "stylelint": "^10.1.0"
+    },
+    "htmllint": {
+        "attr-no-dup": true,
+        "attr-no-unsafe-char": true,
+        "attr-quote-style": "single",
+        "attr-req-value": true,
+        "attr-validate": true,
+        "class-no-dup": true,
+        "doctype-first": "smart",
+        "doctype-html5": true,
+        "focusable-tabindex-style": true,
+        "head-req-title": true,
+        "head-valid-content-model": true,
+        "href-style": "relative",
+        "html-req-lang": true,
+        "html-valid-content-model": true,
+        "id-class-style": false,
+        "id-no-dup": true,
+        "indent-style": "spaces",
+        "indent-width-cont": true,
+        "input-radio-req-name": true,
+        "label-req-for": true,
+        "line-no-trailing-whitespace": true,
+        "spec-char-escape": true,
+        "tag-close": true,
+        "tag-name-lowercase": true,
+        "tag-self-close": "always"
+    },
+    "stylelint": {
+        "extend": "stylelint-config-standard",
+        "rules": {
+            "indentation": 4,
+            "linebreaks": "unix",
+            "no-eol-whitespace": true
+        }
+    },
+    "eslintConfig": {
+        "extends": [
+            "eslint:recommended",
+            "standard",
+            "plugin:lodash/canonical",
+            "plugin:promise/recommended",
+            "plugin:unicorn/recommended"
+        ],
+        "env": {
+            "browser": true,
+            "es6": true,
+            "jquery": true
+        },
+        "globals": {
+            "Hammer": "readonly"
+        },
+        "plugins": [
+            "lodash",
+            "promise",
+            "unicorn"
+        ],
+        "parserOptions": {
+            "ecmaFeatures": {
+                "impliedStrict": true
+            }
+        },
+        "rules": {
+            "comma-dangle": [
+                "error",
+                "always-multiline"
+            ],
+            "complexity": [
+                "warn",
+                {
+                    "max": 20
+                }
+            ],
+            "indent": [
+                "error",
+                4,
+                {
+                    "SwitchCase": 1
+                }
+            ],
+            "no-alert": "warn",
+            "no-console": "warn",
+            "no-constant-condition": "error",
+            "no-control-regex": "warn",
+            "no-debugger": "warn",
+            "no-empty-function": "warn",
+            "no-eval": "error",
+            "no-extra-label": "warn",
+            "no-implicit-coercion": "error",
+            "no-implied-eval": "error",
+            "no-lone-blocks": "error",
+            "no-misleading-character-class": "warn",
+            "no-new": "error",
+            "no-new-func": "error",
+            "no-new-wrappers": "error",
+            "no-octal-escape": "error",
+            "no-return-assign": "error",
+            "no-return-await": "error",
+            "no-script-url": "error",
+            "no-self-compare": "error",
+            "no-sequences": "error",
+            "no-throw-literal": "error",
+            "no-unmodified-loop-condition": "error",
+            "no-var": "error",
+            "no-void": "error",
+            "no-with": "error",
+            "object-curly-spacing": [
+                "error",
+                "never"
+            ],
+            "object-shorthand": [
+                "warn",
+                "always",
+                {
+                    "avoidExplicitReturnArrows": true,
+                    "avoidQuotes": true,
+                    "ignoreConstructors": true
+                }
+            ],
+            "prefer-template": "error",
+            "space-before-function-paren": [
+                "error",
+                "never"
+            ],
+            "strict": [
+                "error",
+                "never"
+            ],
+            "wrap-iife": "error",
+            "lodash/identity-shorthand": [
+                "warn",
+                "always"
+            ],
+            "lodash/prefer-immutable-methods": "off",
+            "lodash/prefer-constant": "off",
+            "lodash/prefer-noop": "off",
+            "lodash/prefer-immutable-method": "off",
+            "lodash/prefer-lodash-method": [
+                "error",
+                {
+                    "ignoreMethods": [
+                        "find",
+                        "filter"
+                    ]
+                }
+            ],
+            "lodash/preferred-alias": "error",
+            "lodash/prefer-lodash-typecheck": "error",
+            "promise/always-return": "off",
+            "promise/catch-or-return": "off",
+            "promise/no-nesting": "off",
+            "unicorn/error-message": "error",
+            "unicorn/filename-case": "off",
+            "unicorn/no-abusive-eslint-disable": "error",
+            "unicorn/no-unsafe-regex": "error",
+            "unicorn/prefer-spread": "error",
+            "unicorn/prefer-starts-ends-with": "error",
+            "unicorn/regex-shorthand": "error",
+            "unicorn/throw-new-error": "error"
+        }
+    }
+}
