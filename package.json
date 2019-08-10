@@ -25,15 +25,12 @@
         "gulp-sourcemaps": "^2.6.5",
         "gulp-terser": "^1.2.0",
         "jquery": "^3.4.1",
-        "lodash": "^4.17.15",
-        "lodash-es": "^4.17.15",
         "rollup": "^1.19.4"
     },
     "devDependencies": {
         "ansi-colors": "^4.1.1",
         "eslint-config-standard": "^13.0.1",
         "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-lodash": "^6.0.0",
         "eslint-plugin-node": "^9.1.0",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.0",
@@ -83,7 +80,6 @@
         "extends": [
             "eslint:recommended",
             "standard",
-            "plugin:lodash/canonical",
             "plugin:promise/recommended",
             "plugin:unicorn/recommended"
         ],
@@ -96,7 +92,6 @@
             "Hammer": "readonly"
         },
         "plugins": [
-            "lodash",
             "promise",
             "unicorn"
         ],
@@ -172,25 +167,6 @@
                 "never"
             ],
             "wrap-iife": "error",
-            "lodash/identity-shorthand": [
-                "warn",
-                "always"
-            ],
-            "lodash/prefer-immutable-methods": "off",
-            "lodash/prefer-constant": "off",
-            "lodash/prefer-noop": "off",
-            "lodash/prefer-immutable-method": "off",
-            "lodash/prefer-lodash-method": [
-                "error",
-                {
-                    "ignoreMethods": [
-                        "find",
-                        "filter"
-                    ]
-                }
-            ],
-            "lodash/preferred-alias": "error",
-            "lodash/prefer-lodash-typecheck": "error",
             "promise/always-return": "off",
             "promise/catch-or-return": "off",
             "promise/no-nesting": "off",
