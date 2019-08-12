@@ -37,3 +37,23 @@
 @import "../../node_modules/bootstrap/scss/spinners";
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/print";
+
+.card-columns {
+    column-count: 1;
+
+    @media only (min-width: 37.5em) {
+        column-count: 2
+    }
+
+    @media only (mix-width: 56.25em) {
+        column-count: 3;
+    }
+
+    @media only (min-width: 75em) {
+        column-count: 4;
+    }
+
+    @media only (min-width: 93.75em) {
+        column-count: 5;
+    }
+}
