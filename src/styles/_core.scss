@@ -3,6 +3,8 @@
 :root {
     font-family: "#{$fa-font-family}" sans !important;
     font-size: 16px;
+
+    scroll-behavior: smooth;
 }
 
 .no-caret {

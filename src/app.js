@@ -24,4 +24,6 @@ document.querySelector('#addColor').addEventListener('click', () => {
         if (index !== -1) cards.splice(index, 1)
         target.remove()
     })
+
+    target.scrollIntoView(true)
 })
