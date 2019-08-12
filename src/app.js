@@ -1,29 +1,20 @@
 import {ColorCard} from './app/color-card.js'
 import {settings} from './app/settings.js'
 
-const elementCache = {
-    colorCardTemplate: document.querySelector('#colorCard'),
-    colors: document.querySelector('#colors'),
-}
-const cards = []
+const colorCards = []
 
 settings.init()
 
-cards.push(new ColorCard(document.querySelector('#baseColors')))
+colorCards.push(new ColorCard(document.querySelector('#baseColors')))
 
 document.querySelector('#addColor').addEventListener('click', () => {
-    elementCache.colors.appendChild(elementCache.colorCardTemplate.content.cloneNode(true))
+    const card = new ColorCard()
 
-    const target = elementCache.colors.lastElementChild
-    const wrapper = new ColorCard(target)
+    colorCards.push(card)
+    card.element.scrollIntoView(true)
+})
 
-    cards.push(wrapper)
-
-    target.querySelector('.close').addEventListener('click', () => {
-        const index = cards.indexOf(wrapper)
-        if (index !== -1) cards.splice(index, 1)
-        target.remove()
-    })
-
-    target.scrollIntoView(true)
+document.addEventListener('removeColor', (event) => {
+    const index = colorCards.indexOf(event.detail.target)
+    if (index !== -1) colorCards.splice(index, 1)
 })

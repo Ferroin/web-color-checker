@@ -7,8 +7,26 @@ import {
     arrayToHex,
 } from './convert.js'
 
+const template = document.querySelector('#colorCard')
+const colors = document.querySelector('#colors')
+
 export class ColorCard {
     constructor(element) {
+        const card = this
+
+        if (!element) {
+            colors.append(template.content.cloneNode(true))
+
+            element = colors.lastElementChild
+
+            element.querySelector('.close').addEventListener('click', () => {
+                element.remove()
+
+                const removeColor = new CustomEvent('removeColor', {detail: {target: card}})
+                document.dispatchEvent(removeColor)
+            })
+        }
+
         Object.defineProperties(this, {
             _bg: {
                 value: '#ffffff',
@@ -22,15 +40,17 @@ export class ColorCard {
 
             _cache: {
                 value: {
-                    card: element,
                     bgInput: element.querySelector('.bg-color'),
-                    textInput: element.querySelector('.text-color'),
+                    name: element.querySelector('.color-name'),
                     samples: element.querySelectorAll('.sample-text > div'),
+                    textInput: element.querySelector('.text-color'),
                 },
             },
-        })
 
-        const card = this
+            element: {
+                value: element,
+            },
+        })
 
         this._cache.bgInput.addEventListener('change', (event) => {
             card.bg = event.target.value
@@ -130,6 +150,14 @@ export class ColorCard {
             hexToArray(this.bgAchromat),
             hexToArray(this.textAchromat),
         )
+    }
+
+    get name() {
+        return this._elementCache.name.value
+    }
+
+    set name(v) {
+        this._elementCache.name.value = v
     }
 
     update() {
