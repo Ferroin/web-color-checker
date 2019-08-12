@@ -12,12 +12,8 @@ const jsAppSources = [
     'src/app.js',
 ]
 
-const styleSources = [
-    'src/styles.scss',
-]
-
-const htmlSources = [
-    'src/index.html',
+const jsWatch = [
+    'src/**/*.js',
 ]
 
 const jsLint = [
@@ -25,8 +21,24 @@ const jsLint = [
     'gulpfile.js',
 ]
 
+const styleSources = [
+    'src/styles.scss',
+]
+
+const stylesWatch = [
+    'src/**/*.scss',
+]
+
 const stylesLint = [
     'src/**/*.scss',
+]
+
+const htmlSources = [
+    'src/index.html',
+]
+
+const fontSources = [
+    'node_modules/fork-awesome/fonts/forkawesome-webfont.woff2',
 ]
 
 const watchOptions = {
@@ -91,9 +103,14 @@ function html() {
         .pipe(dest(distDirectory))
 }
 
+function fonts() {
+    return src(fontSources)
+        .pipe(dest('dist/fonts/'))
+}
+
 function watchLive() {
-    watch(jsAppSources, watchOptions, jsApp)
-    watch(styleSources, watchOptions, styles)
+    watch(jsWatch, watchOptions, jsApp)
+    watch(stylesWatch, watchOptions, styles)
     watch(htmlSources, watchOptions, html)
 }
 
@@ -170,6 +187,7 @@ exports.default = series(
         jsApp,
         styles,
         html,
+        fonts,
     ),
 )
 exports.default.description = 'Build the app.'

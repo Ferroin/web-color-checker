@@ -1,0 +1,35 @@
+/* Core styling */
+
+:root {
+    font-family: "#{$fa-font-family}" sans !important;
+    font-size: 16px;
+}
+
+.no-caret {
+    &::before {
+        display: none;
+    }
+
+    &::after {
+        display: none;
+    }
+}
+
+.sample-text {
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 0;
+    color-adjust: exact;
+}
+
+@mixin hideType($type) {
+    :root.hide-#{$type} .#{$type} {
+        display: none;
+    }
+}
+
+@include hideType(normal)
+@include hideType(deuteranopia)
+@include hideType(protanopia)
+@include hideType(tritanopia)
+@include hideType(achromat)

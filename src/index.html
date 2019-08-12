@@ -10,5 +10,101 @@
         <script src='app.js' defer='true' crossorigin='anonymous'></script>
     </head>
     <body>
+        <div class='container-fluid'>
+            <header id='toolbar' class='btn-toolbar row bg-light shadown-sm sticky-top' role='toolbar' aria-label='Main Toolbar'>
+                <div class='btn-group col-auto p-0 m-2'>
+                    <button type='button' class='btn btn-outline-dark dropdown-toggle no-caret' id='menu' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' aria-label='Menu' title='Menu'>
+                        <span aria-hidden='true' class='fa fa-bars'></span>
+                    </button>
+                    <div class='dropdown-menu'>
+                        <a class='dropdown-item' id='new' href='./'>
+                            <span aria-hidden='true' class='fa fa-file-o pr-1'></span>New Theme
+                        </a>
+                        <button type='button' class='dropdown-item' id='settings' data-toggle='modal' data-target='#settingsModal'>
+                            <span aria-hidden='true' class='fa fa-cog pr-1'></span>Settings
+                        </button>
+                        <button type='button' class='dropdown-item' id='about' data-toggle='modal' data-target='#aboutModal'>
+                            <span aria-hidden='true' class='fa fa-info-circle pr-1'></span>About
+                        </button>
+                    </div>
+                </div>
+                <div class='col p-0 m-0'></div>
+                <button type='button' class='btn btn-outline-dark col-auto m-2' id='addColor' aria-label='Add Color' title='Add Color'>
+                    <span aria-hidden='true' class='fa fa-plus'></span>
+                </button>
+            </header>
+            <main class='pt-3'>
+                <div id='colors'>
+                    <div class='card' id='baseColors'>
+                        <div class='card-header'>
+                            Base Colors
+                        </div>
+                        <div class='card-body'>
+                            <div class='row'>
+                                <div class='col-md-6 row'>
+                                    <label for='baseBGColor' class='align-self-end col-6'>Background color: </label>
+                                    <input type='color' class='form-control col-6 bg-color' id='baseBGColor' value='#ffffff' />
+                                </div>
+                                <div class='col-md-6 row'>
+                                    <label for='baseTextColor' class='align-self-end col-6'>Text color: </label>
+                                    <input type='color' class='form-control col-6 text-color' id='baseTextColor' value='#000000' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class='sample-text list-group list-group-flush'>
+                            <div class='list-group-item normal'></div>
+                            <div class='list-group-item deuteranopia'></div>
+                            <div class='list-group-item protanopia'></div>
+                            <div class='list-group-item tritanopia'></div>
+                            <div class='list-group-item achromat'></div>
+                        </div>
+                    </div>
+                </div>
+                <div id='charts'></div>
+            </main>
+        </div>
+        <div class='modal fade' tabindex='-1' role='dialog' id='settingsModal' aria-labelledby='settingsTitle' aria-hidden='true'>
+            <div class='modal-dialog' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title' id='settingsTitle'>Settings</h5>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                            <span class='fa fa-times-circle' aria-hidden='true'></span>
+                        </button>
+                    </div>
+                    <div class='modal-body'>
+                        <form id='settingsForm'>
+                            <fieldset id='visionToggles'>
+                                <legend>Display samples for:</legend>
+                                <div class='custom-control custom-switch'>
+                                    <input type='checkbox' class='custom-control-input' data-target='showNormal' id='showNormal'>
+                                    <label class='custom-control-label' for='showNormal'>Normal Vision</label>
+                                </div>
+                                <div class='custom-control custom-switch'>
+                                    <input type='checkbox' class='custom-control-input' data-target='showDeuteranopia' id='showDeuteranopia'>
+                                    <label class='custom-control-label' for='showDeuteranopia'>Deuteranopia (red-green color blindness)</label>
+                                </div>
+                                <div class='custom-control custom-switch'>
+                                    <input type='checkbox' class='custom-control-input' data-target='showProtanopia' id='showProtanopia'>
+                                    <label class='custom-control-label' for='showProtanopia'>Protanopia (red-green color blindness)</label>
+                                </div>
+                                <div class='custom-control custom-switch'>
+                                    <input type='checkbox' class='custom-control-input' data-target='showTritanopia' id='showTritanopia'>
+                                    <label class='custom-control-label' for='showTritanopia'>Tritanopia (blue-yellow color blindness)</label>
+                                </div>
+                                <div class='custom-control custom-switch'>
+                                    <input type='checkbox' class='custom-control-input' data-target='showAchromatopsia' id='showAchromatopsia'>
+                                    <label class='custom-control-label' for='showAchromatopsia'>Achromatopsia (total color blindness)</label>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                        <button type='button' class='btn btn-primary' id='saveSettings'>Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

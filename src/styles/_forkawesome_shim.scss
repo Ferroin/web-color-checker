@@ -1,0 +1,39 @@
+/* Fork Awesome styles */
+@import '../../node_modules/fork-awesome/scss/_variables.scss';
+
+$app-icons: (
+    'bars':             $fa-var-bars,           // Used for the menu button
+    'cog':              $fa-var-cog,            // Used for settings button
+    'file-o':           $fa-var-file-o,         // Used for new theme button
+    'info-circle':      $fa-var-info-circle,    // Used for about button
+    'minus':            $fa-var-minus,          // Used throughout the app
+    'plus':             $fa-var-plus,           // Used throughout the app
+);
+
+@font-face {
+    font-family: '#{$fa-font-family}';
+    font-weight: normal;
+    font-style: normal;
+    src: url('fonts/forkawesome-webfont.woff2?=#{$fa-version}') format('woff2');
+    unicode-range: U+F000-F3FF;
+}
+
+.#{$fa-css-prefix} {
+    display: inline-block;
+    font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} #{$fa-font-family};
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$fa-css-prefix}-fw {
+    width: (18em / 14);
+    text-align: center;
+}
+
+@each $name, $value in $app-icons {
+    .#{$fa-css-prefix}-#{$name}:before {
+        content: $value;
+    }
+}
