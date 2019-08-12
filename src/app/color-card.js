@@ -142,23 +142,23 @@ export class ColorCard {
             if (element.matches('.deuteranopia')) {
                 element.style['color'] = this.textDeutan
                 element.style['background-color'] = this.bgDeutan
-                element.innerHTML = `Deuteranopia (red-green color blindness)<br />Contrast ratio: ${this.contrastDeutan}`
+                element.innerHTML = `Deuteranopia<br />Contrast ratio: ${this.contrastDeutan.toPrecision(4)}`
             } else if (element.matches('.protanopia')) {
                 element.style['color'] = this.textProtan
                 element.style['background-color'] = this.bgProtan
-                element.innerHTML = `Protanopia (red-green color blindness)<br />Contrast ratio: ${this.contrastProtan}`
+                element.innerHTML = `Protanopia<br />Contrast ratio: ${this.contrastProtan.toPrecision(4)}`
             } else if (element.matches('.tritanopia')) {
                 element.style['color'] = this.textTritan
                 element.style['background-color'] = this.bgTritan
-                element.innerHTML = `Tritanopia (blue-yellow color blindness)<br />Contrast ratio: ${this.contrastTritan}`
+                element.innerHTML = `Tritanopia<br />Contrast ratio: ${this.contrastTritan.toPrecision(4)}`
             } else if (element.matches('.achromat')) {
                 element.style['color'] = this.textAchromat
                 element.style['background-color'] = this.bgAchromat
-                element.innerHTML = `Achromatopsia (total color blindness)<br />Contrast ratio: ${this.contrastAchromat}`
+                element.innerHTML = `Achromatopsia<br />Contrast ratio: ${this.contrastAchromat.toPrecision(4)}`
             } else {
                 element.style['color'] = this.text
                 element.style['background-color'] = this.bg
-                element.innerHTML = `Normal Vision<br />Contrast ratio: ${this.contrast}`
+                element.innerHTML = `Normal Vision<br />Contrast ratio: ${this.contrast.toPrecision(4)}`
             }
         }
     }
