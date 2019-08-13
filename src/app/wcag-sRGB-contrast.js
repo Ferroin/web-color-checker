@@ -4,8 +4,10 @@
 
 export function contrast(c0, c1) {
     const offset = 0.05
+    const luma0 = sRGBRelativeLuminance(c0)
+    const luma1 = sRGBRelativeLuminance(c1)
 
-    return (sRGBRelativeLuminance(c0) + offset) / (sRGBRelativeLuminance(c1) + offset)
+    return luma0 > luma1 ? (luma0 + offset) / (luma1 + offset) : (luma1 + offset) / (luma0 + offset)
 }
 
 function sRGBRelativeLuminance(color) {
