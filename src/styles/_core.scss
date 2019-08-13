@@ -25,7 +25,7 @@
 }
 
 @mixin hideType($type) {
-    :root.hide-#{$type} .#{$type} {
+    :root.hide-#{$type} .type-#{$type} {
         display: none;
     }
 }
@@ -35,3 +35,11 @@
 @include hideType(protanopia);
 @include hideType(tritanopia);
 @include hideType(achromat);
+
+.swatch-0 {
+    min-height: 3.5rem;
+}
+
+.swatch-1 {
+    min-height: 3.5rem;
+}

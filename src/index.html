@@ -51,15 +51,31 @@
                             </div>
                         </div>
                         <div class='sample-text list-group list-group-flush'>
-                            <div class='list-group-item normal'></div>
-                            <div class='list-group-item deuteranopia'></div>
-                            <div class='list-group-item protanopia'></div>
-                            <div class='list-group-item tritanopia'></div>
-                            <div class='list-group-item achromat'></div>
+                            <div class='list-group-item type-normal'></div>
+                            <div class='list-group-item type-deuteranopia'></div>
+                            <div class='list-group-item type-protanopia'></div>
+                            <div class='list-group-item type-tritanopia'></div>
+                            <div class='list-group-item type-achromat'></div>
                         </div>
                     </div>
                 </div>
-                <div id='charts'></div>
+                <div id='charts'>
+                    <hr class='type-normal' />
+                    <h3 class='type-normal'>Normal Vision Comparisons</h3>
+                    <div class='card-columns type-normal'></div>
+                    <hr class='type-deuteranopia' />
+                    <h3 class='type-deuteranopia'>Deuteranopia Comparisons</h3>
+                    <div class='card-columns type-deuteranopia'></div>
+                    <hr class='type-protanopia' />
+                    <h3 class='type-protanopia'>Protanopia Comparisons</h3>
+                    <div class='card-columns type-protanopia'></div>
+                    <hr class='type-tritanopia' />
+                    <h3 class='type-tritanopia'>Tritanopia Comparisons</h3>
+                    <div class='card-columns type-tritanopia'></div>
+                    <hr class='type-achromat' />
+                    <h3 class='type-achromat'>Achromatopsia Comparisons</h3>
+                    <div class='card-columns type-achromat'></div>
+                </div>
             </main>
         </div>
         <div class='modal fade' tabindex='-1' role='dialog' id='settingsModal' aria-labelledby='settingsTitle' aria-hidden='true'>
@@ -126,11 +142,25 @@
                     </div>
                 </div>
                 <div class='sample-text list-group list-group-flush'>
-                    <div class='list-group-item normal'></div>
-                    <div class='list-group-item deuteranopia'></div>
-                    <div class='list-group-item protanopia'></div>
-                    <div class='list-group-item tritanopia'></div>
-                    <div class='list-group-item achromat'></div>
+                    <div class='list-group-item type-normal'></div>
+                    <div class='list-group-item type-deuteranopia'></div>
+                    <div class='list-group-item type-protanopia'></div>
+                    <div class='list-group-item type-tritanopia'></div>
+                    <div class='list-group-item type-achromat'></div>
+                </div>
+            </div>
+        </template>
+        <template id='swatchCard'>
+            <div class='card'>
+                <div class='card-header swatch-name'></div>
+                <div class='list-group list-group-flush'>
+                    <div class='list-group-item swatch-contrast'></div>
+                    <div class='list-group-item p-0'>
+                        <div class='d-flex flex-row'>
+                            <div class='flex-grow-1 swatch-0'>&nbsp;</div>
+                            <div class='flex-grow-1 swatch-1'>&nbsp;</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </template>
