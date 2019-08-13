@@ -1,9 +1,30 @@
 import {ColorCard} from './app/color-card.js'
 import {SwatchCard} from './app/swatch-card.js'
 import {settings} from './app/settings.js'
+import {
+    generateCSSProperties,
+    generateCSSClasses,
+    generateSASS,
+    generateLESS,
+} from './app/code.js'
 
 const colorCards = []
 const swatchCards = []
+const cache = {
+    cssPropertiesCode: document.querySelector('#cssPropsData'),
+    cssClassesCode: document.querySelector('#cssClassesData'),
+    sassCode: document.querySelector('#sassData'),
+    lessCode: document.querySelector('#lessData'),
+}
+
+function escapeHTML(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 settings.init()
 
@@ -50,4 +71,11 @@ document.querySelector('#charts .type-normal').leave('.card', (element) => {
 
     const index = swatchCards.indexOf(target)
     if (index !== -1) swatchCards.splice(index, 1)
+})
+
+$(document.querySelector('#codeModal')).on('show.bs.modal', () => {
+    cache.cssPropertiesCode.innerHTML = escapeHTML(generateCSSProperties(colorCards))
+    cache.cssClassesCode.innerHTML = escapeHTML(generateCSSClasses(colorCards))
+    cache.sassCode.innerHTML = escapeHTML(generateSASS(colorCards))
+    cache.lessCode.innerHTML = escapeHTML(generateLESS(colorCards))
 })

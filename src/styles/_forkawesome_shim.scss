@@ -3,12 +3,13 @@
 
 $app-icons: (
     'bars':             $fa-var-bars,           // Used for the menu button
+    'code':             $fa-var-code,           // Used for the code button
     'cog':              $fa-var-cog,            // Used for settings button
     'file-o':           $fa-var-file-o,         // Used for new theme button
     'info-circle':      $fa-var-info-circle,    // Used for about button
     'minus':            $fa-var-minus,          // Used throughout the app
     'plus':             $fa-var-plus,           // Used throughout the app
-    'times-circle':    $fa-var-times-circle,   // Used for close/remove buttons
+    'times-circle':     $fa-var-times-circle,   // Used for close/remove buttons
 );
 
 @font-face {
