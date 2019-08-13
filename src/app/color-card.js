@@ -50,54 +50,54 @@ export class ColorCard {
             },
         })
 
-        const bgBaseProp = `bg${types[0].shortName}`
-        const bgHiddenProp = `_${bgBaseProp}`
-        const textBaseProp = `text${types[0].shortName}`
-        const textHiddenProp = `_${textBaseProp}`
+        const bgBaseProperty = `bg${types[0].shortName}`
+        const bgHiddenProperty = `_${bgBaseProperty}`
+        const textBaseProperty = `text${types[0].shortName}`
+        const textHiddenProperty = `_${textBaseProperty}`
 
-        for (let i = 0; i < types.length; i++) {
-            const bgProp = `bg${types[i].shortName}`
-            const textProp = `text${types[i].shortName}`
-            const contrastProp = `contrast${types[i].shortName}`
+        for (const type of types) {
+            const bgProperty = `bg${type.shortName}`
+            const textProperty = `text${type.shortName}`
+            const contrastProperty = `contrast${type.shortName}`
 
             Object.defineProperties(this, {
-                [bgProp]: {
+                [bgProperty]: {
                     get() {
-                        if (types[i].settable) {
-                            return this[bgHiddenProp]
+                        if (type.settable) {
+                            return this[bgHiddenProperty]
                         } else {
-                            return arrayToHex(fBlind[types[i].longName](hexToArray(this[bgBaseProp])))
+                            return arrayToHex(fBlind[type.longName](hexToArray(this[bgBaseProperty])))
                         }
                     },
                     set(v) {
-                        if (types[i].settable && v !== this[bgHiddenProp]) {
-                            this[bgHiddenProp] = v
+                        if (type.settable && v !== this[bgHiddenProperty]) {
+                            this[bgHiddenProperty] = v
                             this.update()
                         }
                     },
                 },
 
-                [textProp]: {
+                [textProperty]: {
                     get() {
-                        if (types[i].settable) {
-                            return this[textHiddenProp]
+                        if (type.settable) {
+                            return this[textHiddenProperty]
                         } else {
-                            return arrayToHex(fBlind[types[i].longName](hexToArray(this[textBaseProp])))
+                            return arrayToHex(fBlind[type.longName](hexToArray(this[textBaseProperty])))
                         }
                     },
                     set(v) {
-                        if (types[i].settable && v !== this[textHiddenProp]) {
-                            this[textHiddenProp] = v
+                        if (type.settable && v !== this[textHiddenProperty]) {
+                            this[textHiddenProperty] = v
                             this.update()
                         }
                     },
                 },
 
-                [contrastProp]: {
+                [contrastProperty]: {
                     get() {
                         return contrast(
-                            hexToArray(this[bgProp]),
-                            hexToArray(this[textProp]),
+                            hexToArray(this[bgProperty]),
+                            hexToArray(this[textProperty]),
                         )
                     },
                 },
@@ -133,14 +133,12 @@ export class ColorCard {
         this._cache.bgInput.value = this.bg
         this._cache.textInput.value = this.text
 
-        for (let i = 0; i < this._cache.samples.length; i++) {
-            const element = this._cache.samples[i]
-
-            for (let j = 0; j < types.length; j++) {
-                if (element.matches(`.${types[j].className}`)) {
-                    element.style['color'] = this[`text${types[j].shortName}`]
-                    element.style['background-color'] = this[`bg${types[j].shortName}`]
-                    element.innerHTML = `${types[j].longName}<br />Contrast ratio: ${this[`contrast${types[j].shortName}`].toPrecision(4)}`
+        for (const element of this._cache.samples) {
+            for (const type of types) {
+                if (element.matches(`.${type.className}`)) {
+                    element.style['color'] = this[`text${type.shortName}`]
+                    element.style['background-color'] = this[`bg${type.shortName}`]
+                    element.innerHTML = `${type.longName}<br />Contrast ratio: ${this[`contrast${type.shortName}`].toPrecision(4)}`
                     break
                 }
             }

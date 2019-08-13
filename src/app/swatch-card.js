@@ -13,12 +13,11 @@ export class SwatchCard {
     constructor(color0, color1) {
         const card = this
         const elements = []
-        const swatches = {}
 
-        for (let i = 0; i < targets.length; i++) {
-            targets[i].append(template.content.cloneNode(true))
+        for (const target of targets) {
+            target.append(template.content.cloneNode(true))
 
-            elements.push(targets[i].lastElementChild)
+            elements.push(target.lastElementChild)
         }
 
         Object.defineProperties(this, {
@@ -35,12 +34,12 @@ export class SwatchCard {
             },
         })
 
-        for (let i = 0; i < types.length; i++) {
-            Object.defineProperty(this, `contrast${types[i].shortName}`, {
+        for (const type of types) {
+            Object.defineProperty(this, `contrast${type.shortName}`, {
                 get() {
                     return contrast(
-                        hexToArray(this.color0[`bg${types[i].shortName}`]),
-                        hexToArray(this.color1[`bg${types[i].shortName}`]),
+                        hexToArray(this.color0[`bg${type.shortName}`]),
+                        hexToArray(this.color1[`bg${type.shortName}`]),
                     )
                 },
             })
