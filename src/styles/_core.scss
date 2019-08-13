@@ -30,8 +30,8 @@
     }
 }
 
-@include hideType(normal)
-@include hideType(deuteranopia)
-@include hideType(protanopia)
-@include hideType(tritanopia)
-@include hideType(achromat)
+@include hideType(normal);
+@include hideType(deuteranopia);
+@include hideType(protanopia);
+@include hideType(tritanopia);
+@include hideType(achromat);

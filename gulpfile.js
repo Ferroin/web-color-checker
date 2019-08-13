@@ -157,7 +157,7 @@ function stylelint() {
 
 function htmllintReporter(filepath, issues) {
     const colors = require('ansi-colors')
-    const fancyLog = require('fancylog')
+    const fancyLog = require('fancy-log')
 
     if (issues.length > 0) {
         for (const issue of issues) {
