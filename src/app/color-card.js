@@ -21,9 +21,6 @@ export class ColorCard {
 
             element.querySelector('.close').addEventListener('click', () => {
                 element.remove()
-
-                const removeColor = new CustomEvent('removeColor', {detail: {target: card}})
-                document.dispatchEvent(removeColor)
             })
         }
 

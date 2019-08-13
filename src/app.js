@@ -14,7 +14,18 @@ document.querySelector('#addColor').addEventListener('click', () => {
     card.element.scrollIntoView(true)
 })
 
-document.addEventListener('removeColor', (event) => {
-    const index = colorCards.indexOf(event.detail.target)
+document.querySelector('#colors').leave('.card', (element) => {
+    let target = null
+
+    for (const card of colorCards) {
+        if (card.element === element) {
+            target = card
+            break
+        }
+    }
+
+    if (!target) return true
+
+    const index = colorCards.indexOf(target)
     if (index !== -1) colorCards.splice(index, 1)
 })

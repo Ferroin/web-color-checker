@@ -13,6 +13,7 @@
     "author": "ahferroin7@gmail.com",
     "license": "SEE LICENSE IN LICENSE.md",
     "dependencies": {
+        "arrive": "^2.4.1",
         "bootstrap": "^4.3.1",
         "del": "^5.0.0",
         "fork-awesome": "^1.1.7",

@@ -6,6 +6,7 @@ const jsLibrarySources = [
     'node_modules/jquery/dist/jquery.min.map',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map',
+    'node_modules/arrive/minified/arrive.min.js',
 ]
 
 const jsAppSources = [
