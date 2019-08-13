@@ -1,14 +1,14 @@
 {
-    "name": "web-theme-creator",
+    "name": "web-color-checker",
     "version": "0.0.1",
-    "description": "A web app for designing themes for websites.",
-    "homepage": "https://github.com/Ferroin/web-theme-creator",
+    "description": "A web app for checking color schemes for websites against accessibility guidelines.",
+    "homepage": "https://github.com/Ferroin/web-color-checker",
     "bugs": {
-        "url": "https://github.com/Ferroin/web-theme-creator/issues"
+        "url": "https://github.com/Ferroin/web-color-checker/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Ferroin/web-theme-creator"
+        "url": "https://github.com/Ferroin/web-color-checker"
     },
     "author": "ahferroin7@gmail.com",
     "license": "SEE LICENSE IN LICENSE.md",

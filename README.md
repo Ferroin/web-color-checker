@@ -1,4 +1,4 @@
-# Web Theme Creator
+# Web Color Checker
 
 This is a tool for designers and web developers to aid in choosing color
 themes for their web apps.  It lets you specify a background color and a
