@@ -17,7 +17,17 @@ export class SwatchCard {
         for (const target of targets) {
             target.append(template.content.cloneNode(true))
 
-            elements.push(target.lastElementChild)
+            const element = target.lastElementChild
+
+            elements.push(element)
+
+            element.querySelector('.swatch-0').addEventListener('click', () => {
+                card.color0.element.scrollIntoView(true)
+            })
+
+            element.querySelector('.swatch-1').addEventListener('click', () => {
+                card.color1.element.scrollIntoView(true)
+            })
         }
 
         Object.defineProperties(this, {
