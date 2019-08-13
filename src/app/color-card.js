@@ -5,6 +5,8 @@ import {contrast} from './wcag-sRGB-contrast.js'
 import {
     hexToArray,
     arrayToHex,
+    hexToB64,
+    b64ToHex,
 } from './convert.js'
 import {types} from './types.js'
 
@@ -23,6 +25,9 @@ export class ColorCard {
             element.querySelector('.close').addEventListener('click', () => {
                 element.remove()
             })
+            this.fixed = false
+        } else {
+            this.fixed = true
         }
 
         Object.defineProperties(this, {
@@ -106,16 +111,17 @@ export class ColorCard {
 
         this._cache.bgInput.addEventListener('change', (event) => {
             card.bg = event.target.value
-            card.element.dispatchEvent(new Event('change'))
+            document.dispatchEvent(new CustomEvent('updateState'))
         })
 
         this._cache.textInput.addEventListener('change', (event) => {
             card.text = event.target.value
-            card.element.dispatchEvent(new Event('change'))
+            document.dispatchEvent(new CustomEvent('updateState'))
         })
 
         this._cache.name.addEventListener('change', () => {
             card.element.dispatchEvent(new Event('change'))
+            document.dispatchEvent(new CustomEvent('updateState'))
         })
 
         this.update()
@@ -127,6 +133,35 @@ export class ColorCard {
 
     set name(v) {
         this._cache.name.value = v
+    }
+
+    get state() {
+        const bg = hexToB64(this.bg)
+        const text = hexToB64(this.text)
+
+        const state = `${bg}${text}`
+            .replace(/\//g, '_')
+            .replace(/\+/g, '-')
+
+        return `${state}${this.fixed ? '' : this.name}`
+    }
+
+    set state(v) {
+        const colors = v.slice(0, 8)
+            .replace(/_/g, '/')
+            .replace(/-/g, '+')
+
+        this.bg = b64ToHex(colors.slice(0, 4))
+        this.text = b64ToHex(colors.slice(4, 8))
+        if (!this.fixed) {
+            this.name = v.slice(8)
+        }
+    }
+
+    remove() {
+        if (!this.fixed) {
+            this.element.remove()
+        }
     }
 
     update() {
@@ -143,5 +178,7 @@ export class ColorCard {
                 }
             }
         }
+
+        this.element.dispatchEvent(new Event('change'))
     }
 }

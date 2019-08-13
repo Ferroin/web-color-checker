@@ -23,3 +23,25 @@ export function arrayToHex(colorArray) {
 
     return `#${red}${green}${blue}`
 }
+
+/*
+ * Converts from #RRGGBB format to Base64.
+ */
+export function hexToB64(color) {
+    color = hexToArray(color)
+
+    return btoa(`${String.fromCharCode(color[0])}${String.fromCharCode(color[1])}${String.fromCharCode(color[2])}`)
+}
+
+/*
+ * Convert from Base64 to #RRGGBB format.
+ */
+export function b64ToHex(color) {
+    const string = atob(color)
+
+    return arrayToHex([
+        string.charCodeAt(0),
+        string.charCodeAt(1),
+        string.charCodeAt(2),
+    ])
+}

@@ -2,6 +2,8 @@
  * Handling for app settings.
  */
 
+import {b64} from './b64.js'
+
 export const settings = {
     init() {
         this._form = document.querySelector('#settingsForm')
@@ -56,6 +58,30 @@ export const settings = {
         $(this._modal).on('hidden.bs.modal', () => {
             settings._form.reset()
         })
+    },
+
+    get state() {
+        let state = 0
+
+        state |= this.showNormal ? 0x01 : 0x00
+        state |= this.showDeuteranopia ? 0x02 : 0x00
+        state |= this.showProtanopia ? 0x04 : 0x00
+        state |= this.showTritanopia ? 0x08 : 0x00
+        state |= this.showAchromatopsia ? 0x10 : 0x00
+
+        return b64[state]
+    },
+
+    set state(v) {
+        const newState = b64.indexOf(v)
+
+        if (newState === -1) return
+
+        this.showNormal = Boolean(newState & 0x01)
+        this.showDeuteranopia = Boolean(newState & 0x02)
+        this.showProtanopia = Boolean(newState & 0x04)
+        this.showTritanopia = Boolean(newState & 0x08)
+        this.showAchromatopsia = Boolean(newState & 0x10)
     },
 
     get showNormal() {
@@ -141,5 +167,7 @@ export const settings = {
                 input.defaultValue = this[target]
             }
         }
+
+        document.dispatchEvent(new CustomEvent('updateState'))
     },
 }
