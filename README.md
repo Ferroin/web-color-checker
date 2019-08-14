@@ -106,6 +106,17 @@ of the default theme from Bootstrap 4:
 
     #P;____AAAA;AHv_____Primary;bHV9____Secondary;KKdF____Success;F6K4____Info;_8EHAAAAWarning;3DVF____Danger;-Pn6AAAALight;NDpA____Dark;
 
+## Building
+
+BUilding the app requires Node.js, NPM, and Gulp.
+
+Once you have those isntalled, just run the following in the repository root:
+
+```
+npm install
+gulp
+```
+
 ## FAQ
 
 ### Why do you list deuteranopia first in the color blindness simulations?
