@@ -101,10 +101,10 @@ that should happen is that the page doesn't load).
 
 ## Examples
 
-Replace the end of the URL with the following to see an approximation
-of the default theme from Bootstrap 4:
+Try the app live at http://web-theme-creator.ahferroin7.net.
 
-    #P;____AAAA;AHv_____Primary;bHV9____Secondary;KKdF____Success;F6K4____Info;_8EHAAAAWarning;3DVF____Danger;-Pn6AAAALight;NDpA____Dark;
+A sample of what the default Bootstrap 4 theme looks like with the app:
+http://web-theme-creator.ahferroin7.net/#P;____AAAA;AHv_____Primary;bHV9____Secondary;KKdF____Success;F6K4____Info;_8EHAAAAWarning;3DVF____Danger;-Pn6AAAALight;NDpA____Dark;
 
 ## Building
 
