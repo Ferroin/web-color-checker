@@ -153,9 +153,12 @@ export class ColorCard {
 
         this.bg = b64ToHex(colors.slice(0, 4))
         this.text = b64ToHex(colors.slice(4, 8))
+
         if (!this.fixed) {
             this.name = v.slice(8)
         }
+
+        this.update()
     }
 
     remove() {
